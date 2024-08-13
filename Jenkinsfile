@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'git@github.com:BamaOlga/Node.js.git'
+                git branch: 'main', url: 'https://github.com/BamaOlga/Node.js.git'
             }
         }
 
