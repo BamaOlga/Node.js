@@ -12,13 +12,15 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                script {
-                    docker.build("${env.DOCKER_IMAGE}:latest")
-                }
-            }
+       stage('Build') {
+    steps {
+        script {
+            // Example command that might fail if not found
+            sh 'npm install'
         }
+    }
+}
+
 
         stage('Test') {
             steps {
