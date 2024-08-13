@@ -12,14 +12,16 @@ pipeline {
             }
         }
 
-       stage('Build') {
+     stage('Build') {
     steps {
         script {
-            // Example command that might fail if not found
+            sh 'env'
+            sh 'which npm'
             sh 'npm install'
         }
     }
 }
+
 
 
         stage('Test') {
