@@ -12,14 +12,18 @@ pipeline {
             }
         }
 
-     stage('Build') {
-    steps {
-        script {
-            sh 'env'
-            sh 'which npm'
-            sh 'npm install'
+   try {
+    stage('Build') {
+        steps {
+            script {
+                sh 'npm install'
+            }
         }
     }
+} catch (Exception e) {
+    echo "Build stage failed: ${e.message}"
+    currentBuild.result = 'FAILURE'
+    return
 }
 
 
