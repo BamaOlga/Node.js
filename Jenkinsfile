@@ -12,19 +12,13 @@ pipeline {
             }
         }
 
-   try {
-    stage('Build') {
-        steps {
-            script {
-                sh 'npm install'
+   stage('Build') {
+            steps {
+                script {
+                    docker.build("${env.DOCKER_IMAGE}:latest")
+                }
             }
         }
-    }
-} catch (Exception e) {
-    echo "Build stage failed: ${e.message}"
-    currentBuild.result = 'FAILURE'
-    return
-}
 
 
 
