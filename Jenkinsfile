@@ -22,16 +22,21 @@ pipeline {
 }
 
 
-
         stage('Test') {
-            steps {
-                script {
-                    docker.image("${env.DOCKER_IMAGE}:latest").inside {
-                        sh 'npm test'
-                    }
-                }
-            }
+    steps {
+        dir('app') {  // Adjust 'app' to the correct subdirectory
+            sh 'npm test'
         }
+    }
+}
+
+   stage('Test') {
+    steps {
+        sh 'ls -al'
+        sh 'npm test'
+    }
+}
+     
 
         stage('Deploy') {
             steps {
