@@ -14,9 +14,11 @@ pipeline {
 
    stage('Build') {
     steps {
-        sh 'docker build -t my-node-app:latest my-node-app/package.json'
+        sh 'ls -al ./my-node-app' // Adjust the path if needed
+        sh 'docker build -t my-node-app:latest ./my-node-app'
     }
 }
+
 
 
 
