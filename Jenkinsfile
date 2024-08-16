@@ -13,12 +13,13 @@ pipeline {
         }
 
    stage('Build') {
-            steps {
-                script {
-                    docker.build("${env.DOCKER_IMAGE}:latest")
-                }
-            }
+    steps {
+        script {
+            def dockerPath = "/usr/bin/docker" // Update this path based on your environment
+            sh "${dockerPath} build -t my-node-app:latest ."
         }
+    }
+}
 
 
 
