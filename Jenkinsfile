@@ -24,8 +24,10 @@ pipeline {
 
         stage('Unit Test') {
     steps {
-        dir('app') {  // Adjust 'app' to the correct subdirectory
-            sh 'npm test'
+        dir('app') {
+            withEnv(['PATH+NODE=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin']) {
+                sh 'npm test'
+            }
         }
     }
 }
