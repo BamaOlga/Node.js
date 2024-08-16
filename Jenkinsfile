@@ -14,12 +14,10 @@ pipeline {
 
    stage('Build') {
     steps {
-        script {
-            def dockerPath = "/usr/bin/docker" // Update this path based on your environment
-            sh "${dockerPath} build -t my-node-app:latest ."
-        }
+        sh 'docker build -t my-node-app:latest ./subdirectory'
     }
 }
+
 
 
         stage('Unit Test') {
