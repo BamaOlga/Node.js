@@ -22,7 +22,7 @@ pipeline {
 }
 
 
-        stage('Test') {
+        stage('Unit Test') {
     steps {
         dir('app') {  // Adjust 'app' to the correct subdirectory
             sh 'npm test'
@@ -30,7 +30,7 @@ pipeline {
     }
 }
 
-   stage('Test') {
+   stage('Integration Test') {
     steps {
         sh 'ls -al'
         sh 'npm test'
