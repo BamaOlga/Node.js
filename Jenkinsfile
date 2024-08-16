@@ -24,17 +24,14 @@ pipeline {
 
         stage('Unit Test') {
     steps {
-        dir('app') {
-            withEnv(['PATH+NODE=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin']) {
-                sh 'npm test'
-            }
-        }
+        sh 'npm test'
     }
 }
 
+
    stage('Integration Test') {
     steps {
-        sh 'ls -al'
+        sh 'ls -al /var/lib/jenkins/workspace/Web\\ app/app'
         sh 'npm test'
     }
 }
