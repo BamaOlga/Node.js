@@ -14,7 +14,7 @@ pipeline {
 
    stage('Build') {
     steps {
-        sh 'docker build -t my-node-app:latest ./subdirectory'
+        sh 'docker build -t my-node-app:latest .'
     }
 }
 
